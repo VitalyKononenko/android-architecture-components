@@ -86,9 +86,10 @@ public class ProductViewModel extends AndroidViewModel {
             mRepository = ((BasicApp) application).getRepository();
         }
 
+        @SuppressWarnings("unchecked")
         @Override
-        public <T extends ViewModel> T create(Class<T> modelClass) {
-            //noinspection unchecked
+        @NonNull
+        public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
             return (T) new ProductViewModel(mApplication, mRepository, mProductId);
         }
     }
